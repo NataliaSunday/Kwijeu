@@ -1,7 +1,7 @@
 <template>
     <section class="answer">
         <ul>
-            <li v-for="el in answer" :key="el.id">{{el.content}}</li>
+            <li v-for="el in answer" :key="el.id" @click="check(el.isTrue)">{{el.content}}</li>
         </ul>
     </section>
 </template>
@@ -11,6 +11,11 @@
 export default {
   props: {
     answer: Array
+  },
+  methods: {
+    check (isTrue) {
+      alert(isTrue)
+    }
   }
 }
 </script>
