@@ -1,6 +1,6 @@
 <template>
  <div id="app">
-     <button @click="isStarted = !isStarted">Start</button>
+     <button @click="isStarted = !isStarted" v-if="!isStarted">Start</button>
      <section v-if="isStarted === true">
         <question :content="quizData.questions[numberOfQuestion].content.question"></question>
         <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
@@ -38,14 +38,16 @@ export default {
       this.isAnswerGood = true
       this.showResult = true
       setTimeout(() => {
-        this.numberOfQuestion = Math.floor(Math.random() * 4)
+        this.showResult = false
+        this.numberOfQuestion = Math.floor(Math.random() * 5)
       }, 1000)
     })
     this.$root.$on('badAnswer', () => {
       this.isAnswerGood = false
       this.showResult = true
       setTimeout(() => {
-        this.numberOfQuestion = Math.floor(Math.random() * 4)
+        this.showResult = false
+        this.numberOfQuestion = Math.floor(Math.random() * 5)
       }, 1000)
     })
   }
