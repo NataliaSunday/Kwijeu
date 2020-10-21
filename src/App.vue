@@ -37,10 +37,16 @@ export default {
     this.$root.$on('goodAnswer', () => {
       this.isAnswerGood = true
       this.showResult = true
+      setTimeout(() => {
+        this.numberOfQuestion = Math.floor(Math.random() * 4)
+      }, 1000)
     })
     this.$root.$on('badAnswer', () => {
       this.isAnswerGood = false
       this.showResult = true
+      setTimeout(() => {
+        this.numberOfQuestion = Math.floor(Math.random() * 4)
+      }, 1000)
     })
   }
 }

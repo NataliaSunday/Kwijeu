@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article  :style="[isGood ? {backgroundColor: 'green'} : {backgroundColor: 'red'}]">
         {{ question }}
         {{ answer.content }}
     </article>
