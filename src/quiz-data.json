@@ -1,7 +1,7 @@
 {
     "questions": [{
         "id": "1",
-        "contntent" : {
+        "content" : {
             "question": "안녕하세요?",
             "answers": [
                 { 
@@ -25,7 +25,7 @@
     },
     {
     "id": "2",
-        "contntent" : {
+        "content" : {
             "question": "잘 지내요?",
             "answers": [
                 { 
@@ -48,7 +48,7 @@
        
     },{
         "id": "3",
-        "contntent" : {
+        "content" : {
             "question": "잘 지내세요?",
             "answers": [
                 { 
@@ -72,7 +72,7 @@
     },
     {
         "id": "4",
-        "contntent" : {
+        "content" : {
             "question": "아니요.",
             "answers": [
                 { 
@@ -96,7 +96,7 @@
     },
     {
         "id": "5",
-        "contntent" : {
+        "content" : {
             "question": "아니에요.",
             "answers": [
                 { 

@@ -1,13 +1,10 @@
 <template>
  <div id="app">
-   {{quizData.questions[1].content}}
-   <hr>
-   {{quizData.questions[1]}}
-   <hr>
-    {{quizData.questions}}
      <button @click="isStarted = !isStarted">Start</button>
      <section v-if="isStarted === true">
-        <question></question>
+        <question :content="quizData.questions[numberOfQuestion].content.question"></question>
+        <answer :answer="quizData.questions[numberOfQuestion].content.answers">
+        </answer>
      </section>
  </div>
 </template>
@@ -15,6 +12,7 @@
 <script>
 import json from './quiz-data.json'
 import question from './components/Question.vue'
+import answer from './components/Answer.vue'
 
 export default {
   data () {
@@ -25,7 +23,8 @@ export default {
     }
   },
   components: {
-    question
+    question,
+    answer
   }
 }
 </script>
