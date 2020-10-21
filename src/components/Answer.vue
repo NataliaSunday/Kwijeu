@@ -14,7 +14,11 @@ export default {
   },
   methods: {
     check (isTrue) {
-      alert(isTrue)
+      if (isTrue) {
+        this.$root.$emit('goodAnswer')
+      } else {
+        this.$root.$emit('badAnswer')
+      }
     }
   }
 }
