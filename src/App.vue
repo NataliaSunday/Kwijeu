@@ -5,10 +5,10 @@
         <question :content="quizData.questions[numberOfQuestion].content.question"></question>
         <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
      </section>
-     <good-answer
-     v-if="isAnswerGood"
+     <answer-checking v-if="showResult"
+     :isGood="isAnswerGood"
      :question="quizData.questions[numberOfQuestion].content.question"
-     :answer="quizData.questions[numberOfQuestion].content.answers.find(element => element.isTrue = true)"></good-answer>
+     :answer="quizData.questions[numberOfQuestion].content.answers.find(element => element.isTrue = true)"></answer-checking>
  </div>
 </template>
 
@@ -16,7 +16,7 @@
 import json from './quiz-data.json'
 import question from './components/Question.vue'
 import answer from './components/Answer.vue'
-import goodAnswer from './components/GoodAnswer.vue'
+import answerChecking from './components/AnswerChecking.vue'
 
 export default {
   data () {
@@ -24,17 +24,23 @@ export default {
       isStarted: false,
       quizData: json,
       numberOfQuestion: '1',
-      isAnswerGood: true
+      isAnswerGood: '',
+      showResult: ''
     }
   },
   components: {
     question,
     answer,
-    goodAnswer
+    answerChecking
   },
   mounted () {
     this.$root.$on('goodAnswer', () => {
       this.isAnswerGood = true
+      this.showResult = true
+    })
+    this.$root.$on('badAnswer', () => {
+      this.isAnswerGood = false
+      this.showResult = true
     })
   }
 }
