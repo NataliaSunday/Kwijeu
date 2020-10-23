@@ -42,7 +42,7 @@ export default {
       setTimeout(() => {
         this.showResult = false
         this.numberOfQuestion = Math.floor(Math.random() * 5)
-      }, 1000)
+      }, 2500)
     })
     this.$root.$on('badAnswer', () => {
       this.isAnswerGood = false
@@ -50,7 +50,7 @@ export default {
       setTimeout(() => {
         this.showResult = false
         this.numberOfQuestion = Math.floor(Math.random() * 5)
-      }, 1000)
+      }, 2500)
     })
   }
 }
