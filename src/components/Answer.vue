@@ -1,8 +1,6 @@
 <template>
     <section class="answer">
-        <ul>
-            <li v-for="el in answer" :key="el.id" @click="check(el.isTrue)">{{el.content}}</li>
-        </ul>
+      <button class="btn btn--answer" v-for="el in answer" :key="el.id" @click="check(el.isTrue)">{{el.content}}</button>
     </section>
 </template>
 
@@ -24,6 +22,14 @@ export default {
 }
 </script>
 
-<style lang="css">
-
+<style>
+.btn--answer{
+  color: var(--orange);
+  box-shadow: 0 .25em .5em var(--orange);
+  margin: .2em 0;
+}
+.answer{
+display: flex;
+flex-direction: column;
+}
 </style>
