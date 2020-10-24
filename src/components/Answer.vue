@@ -25,8 +25,8 @@ export default {
 <style>
 .btn--answer{
   color: var(--orange);
-  box-shadow: 0 .25em .5em var(--orange);
-  margin: .2em 0;
+  box-shadow: 0 .25rem .5rem var(--orange);
+  margin: .33rem 0;
 }
 .answer{
 display: flex;

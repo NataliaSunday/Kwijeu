@@ -17,8 +17,8 @@ export default {
 .question{
   width: auto;
   height: auto;
-  font-size: 3.5em;
+  font-size: 3.5rem;
   color: var(--white);
-  margin-bottom: 1.5em;
+  margin-bottom: 4rem;
 }
 </style>

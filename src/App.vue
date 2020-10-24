@@ -1,9 +1,9 @@
 <template>
  <div id="app">
-   <section v-if="!isStarted" class="welcomeScreen">
+   <section v-if="!isStarted" class="welcomeScreen flex--center">
        <button @click="isStarted = !isStarted" class="btn btn--primary">start quiz</button>
    </section>
-    <section v-if="isStarted === true" class="quizScreen">
+    <section v-if="isStarted === true" class="quizScreen flex--center">
         <question :content="quizData.questions[numberOfQuestion].content.question"></question>
         <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
      </section>
@@ -77,33 +77,33 @@ export default {
 .welcomeScreen{
   width: inherit;
   height: inherit;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(#4CBBE0 ,var(--blue) 40%, var(--white));
 }
 .quizScreen{
   width: inherit;
   height: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: linear-gradient(var(--orange) 40%, var(--white));
 }
 .btn{
-  width: 14em;
-  height: 2em;
-  border-radius: .55em;
+  width: 20rem;
+  height: min-content;
+  padding: .5em;
+  border-radius: .55rem;
   border: 1px var(--white);
   background-color: var(--white);
   font-family: 'Lato','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 1.75em;
+  font-size: 1.75rem;
   font-weight: 300;
   outline: none;
 }
 .btn--primary{
   color: var(--blue);
   box-shadow: 0 .25em .5em var(--blue);
+}
+.flex--center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
