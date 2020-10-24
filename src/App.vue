@@ -5,10 +5,12 @@
       <button @click="isStarted = !isStarted" class="btn btn--primary">start quiz</button>
     </section>
   </transition>
-  <section v-if="isStarted === true" class="quizScreen flex--center">
-    <question :content="quizData.questions[numberOfQuestion].content.question"></question>
-    <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
+  <transition name="up">
+    <section v-if="isStarted === true" class="quizScreen flex--center">
+      <question :content="quizData.questions[numberOfQuestion].content.question"></question>
+      <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
   </section>
+  </transition>
   <answer-checking v-if="showResult"
     :isGood="isAnswerGood"
     :question="quizData.questions[numberOfQuestion].content.question"
