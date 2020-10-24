@@ -1,16 +1,18 @@
 <template>
  <div id="app">
-   <section v-if="!isStarted" class="welcomeScreen flex--center">
-       <button @click="isStarted = !isStarted" class="btn btn--primary">start quiz</button>
-   </section>
-    <section v-if="isStarted === true" class="quizScreen flex--center">
-        <question :content="quizData.questions[numberOfQuestion].content.question"></question>
-        <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
-     </section>
-     <answer-checking v-if="showResult"
-     :isGood="isAnswerGood"
-     :question="quizData.questions[numberOfQuestion].content.question"
-     :answer="quizData.questions[numberOfQuestion].content.answers.find(element => element.isTrue = true)"></answer-checking>
+  <transition name="up" appear>
+    <section v-if="!isStarted" class="welcomeScreen flex--center">
+      <button @click="isStarted = !isStarted" class="btn btn--primary">start quiz</button>
+    </section>
+  </transition>
+  <section v-if="isStarted === true" class="quizScreen flex--center">
+    <question :content="quizData.questions[numberOfQuestion].content.question"></question>
+    <answer :answer="quizData.questions[numberOfQuestion].content.answers"></answer>
+  </section>
+  <answer-checking v-if="showResult"
+    :isGood="isAnswerGood"
+    :question="quizData.questions[numberOfQuestion].content.question"
+    :answer="quizData.questions[numberOfQuestion].content.answers.find(element => element.isTrue = true)"></answer-checking>
  </div>
 </template>
 
@@ -105,5 +107,27 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.up-enter{
+  opacity: 0;
+  height: 0%;
+}
+.up-enter-to{
+  opacity: 1;
+  height: 100%;
+}
+.up-enter-active{
+  transition: all 1s ease;
+}
+.up-leave-active{
+   transition: all 1s ease;
+}
+.up-leave{
+  opacity: 1;
+  height: 100%;
+}
+.up-leave-to{
+  opacity: 0;
+  height: 0%;
 }
 </style>
