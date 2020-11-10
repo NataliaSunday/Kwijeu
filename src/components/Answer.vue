@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .btn--answer{
   color: var(--orange);
   box-shadow: 0 .25rem .5rem var(--orange);

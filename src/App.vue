@@ -122,7 +122,7 @@ export default {
   transition: all 1s ease;
 }
 .up-leave-active{
-   transition: all 1s ease;
+  transition: all 1s ease;
 }
 .up-leave{
   opacity: 1;

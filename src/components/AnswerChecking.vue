@@ -1,7 +1,8 @@
 <template>
-    <section class="checkScreen flex--center" :style="[isGood ? {background: 'linear-gradient(var(--green) 40%, var(--white))'} : {background: 'linear-gradient(var(--red) 40%, var(--white))'}]">
-        <article   :style="[isGood ? {boxShadow: '0 .25rem .5rem var(--green)'} : {boxShadow: '0 .25rem .5rem var(--red'}]"
-        class="checkScreen__box flex--center">
+      <section class="checkScreen flex--center" :style="[isGood ? {background: 'linear-gradient(var(--green) 40%, var(--white))'} : {background: 'linear-gradient(var(--red) 40%, var(--white))'}]">
+      <transition name="down" appear>
+        <article :style="[isGood ? {boxShadow: '0 .25rem .5rem var(--green)'} : {boxShadow: '0 .25rem .5rem var(--red'}]"
+          class="checkScreen__box flex--center">
           <p
           :style="[isGood ? {color: 'var(--green)'} : {color: 'var(--red)'}]"
           class="checkScreen__box__question">{{ question }}</p>
@@ -9,6 +10,7 @@
           :style="[isGood ? {color: '#A7D18F'} : {color: '#DF9278'}]"
           class="checkScreen__box__answer">{{ answer.content }}</p>
         </article>
+      </transition>
     </section>
 </template>
 
@@ -22,7 +24,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .checkScreen{
   position: absolute;
   top: 0;
@@ -50,5 +52,17 @@ export default {
   color: #A7D18F;
   font-size: 2rem;
   text-align: center;
+}
+.down-enter{
+  transform: translateY(100vh);
+}
+.down-enter-active{
+  transition: all 1s ease;
+}
+.down-leave-active{
+  transition: all 1s ease;
+}
+.down-leave-to, .down-leave{
+  transform: translateY(100vh);
 }
 </style>
