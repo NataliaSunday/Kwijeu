@@ -1,6 +1,6 @@
 <template>
+<transition name="slide" appear>
       <section class="checkScreen flex--center" :style="[isGood ? {background: 'linear-gradient(var(--green) 40%, var(--white))'} : {background: 'linear-gradient(var(--red) 40%, var(--white))'}]">
-      <transition name="down" appear>
         <article :style="[isGood ? {boxShadow: '0 .25rem .5rem var(--green)'} : {boxShadow: '0 .25rem .5rem var(--red'}]"
           class="checkScreen__box flex--center">
           <p
@@ -10,8 +10,8 @@
           :style="[isGood ? {color: '#A7D18F'} : {color: '#DF9278'}]"
           class="checkScreen__box__answer">{{ answer.content }}</p>
         </article>
-      </transition>
     </section>
+  </transition>
 </template>
 
 <script>
@@ -53,16 +53,20 @@ export default {
   font-size: 2rem;
   text-align: center;
 }
-.down-enter{
-  transform: translateY(100vh);
+.slide-enter{
+  transform: translateY(100%);
+  background: linear-gradient(var(--blue) 40%, var(--white));
 }
-.down-enter-active{
-  transition: all 1s ease;
+.slide-enter-to{
 }
-.down-leave-active{
-  transition: all 1s ease;
+.slide-enter-active, .slide-leave-active{
+  transition: all 1s ease-in-out;
 }
-.down-leave-to, .down-leave{
-  transform: translateY(100vh);
+.slide-leave{
 }
+.slide-leave-to{
+  transform: translateY(100%);
+  background: linear-gradient(var(--blue) 40%, var(--white));
+}
+
 </style>
