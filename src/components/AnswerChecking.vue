@@ -54,19 +54,19 @@ export default {
   text-align: center;
 }
 .slide-enter{
-  transform: translateY(100%);
-  background: linear-gradient(var(--blue) 40%, var(--white));
+  height: 0;
+  opacity: 0;
 }
 .slide-enter-to{
 }
 .slide-enter-active, .slide-leave-active{
-  transition: all 1s ease-in-out;
+  transition: all 1s ease;
 }
 .slide-leave{
 }
 .slide-leave-to{
-  transform: translateY(100%);
-  background: linear-gradient(var(--blue) 40%, var(--white));
+  height: 0;
+  opacity: 0;
 }
 
 </style>
